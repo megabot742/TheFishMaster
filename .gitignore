@@ -72,5 +72,5 @@ crashlytics-build.properties
 
 # Turn on _projectmain and subfolders/files inside
 !Assets/_ProjectMain/
-!Assets/_ProjectMain.meta/
+!Assets/_ProjectMain.meta
 !Assets/_ProjectMain/**/*
