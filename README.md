@@ -9,5 +9,6 @@
 4. Open the project in Unity and start working!
 
 ## Note
+- Unity 6 Version: 6000.0.24f1
 - Make sure to place the extracted file in the right folder `Assets` for Unity to identify.
 - If the link expires, contact <phuocloc742@gmail.com> to update.
