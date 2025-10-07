@@ -598,97 +598,97 @@ MonoBehaviour:
   - price: 20
     fishCount: 10
     minLength: -30
-    maxLength: -70
+    maxLength: -100
     collierRadius: 0.2
     sprite: {fileID: 8966945178157639174, guid: 9f6234d4fe9eb1e4bac5e515f4ce9fe6, type: 3}
   - price: 30
     fishCount: 10
     minLength: -40
-    maxLength: -80
+    maxLength: -120
     collierRadius: 0.2
     sprite: {fileID: -2045265416703063586, guid: 78393aefc14cd344c9915dfab17392b7, type: 3}
   - price: 40
     fishCount: 10
     minLength: -50
-    maxLength: -90
+    maxLength: -130
     collierRadius: 0.2
     sprite: {fileID: 6420612754435662787, guid: ecb15b6b48b0563459c585bce006c372, type: 3}
   - price: 50
     fishCount: 10
     minLength: -70
-    maxLength: -100
+    maxLength: -140
     collierRadius: 0.2
     sprite: {fileID: 2398962290266729123, guid: 643d80455ea376d438e713bdf79399de, type: 3}
   - price: 60
     fishCount: 10
     minLength: -90
-    maxLength: -110
+    maxLength: -150
     collierRadius: 0.2
     sprite: {fileID: 5591354139827119590, guid: 4abfcb7f16c9ab14db88d34affdb6aa5, type: 3}
   - price: 70
     fishCount: 10
     minLength: -100
-    maxLength: -130
+    maxLength: -160
     collierRadius: 0.2
     sprite: {fileID: 8532478753712027516, guid: 893c3fd2700fcf04daea601118599888, type: 3}
   - price: 80
     fishCount: 10
     minLength: -110
-    maxLength: -140
+    maxLength: -180
     collierRadius: 0.2
     sprite: {fileID: -1767718307974124739, guid: bf0800b3748ace847b4517c36570c18a, type: 3}
   - price: 90
     fishCount: 10
     minLength: -120
-    maxLength: -150
+    maxLength: -180
     collierRadius: 0.2
     sprite: {fileID: -1762229182189916368, guid: b7a268018b0a1664b9820a9c20a75bc4, type: 3}
   - price: 100
     fishCount: 10
     minLength: -130
-    maxLength: -160
+    maxLength: -200
     collierRadius: 0.2
     sprite: {fileID: 1730496894020149204, guid: 24df8bf2065edea48b248ccc8370e81e, type: 3}
   - price: 120
     fishCount: 10
     minLength: -150
-    maxLength: -180
+    maxLength: -220
     collierRadius: 0.2
     sprite: {fileID: 2717186713797876553, guid: 11d8f57b6f4340c4ba1a4fdb925761ca, type: 3}
   - price: 150
     fishCount: 10
     minLength: -170
-    maxLength: -190
+    maxLength: -220
     collierRadius: 0.2
     sprite: {fileID: -5643767255001524317, guid: 744f9e7a29e355e4cadf2826051fd264, type: 3}
   - price: 200
     fishCount: 10
     minLength: -170
-    maxLength: -200
+    maxLength: -230
     collierRadius: 0.2
     sprite: {fileID: -2655201640545338807, guid: 2327bc3e2bc8d2a439d4775360b673a8, type: 3}
   - price: 300
     fishCount: 10
     minLength: -180
-    maxLength: -200
+    maxLength: -240
     collierRadius: 0.2
     sprite: {fileID: -855719709115259005, guid: 68073c4081bfa2941acf899b081ccb23, type: 3}
   - price: 30
     fishCount: 10
     minLength: -100
-    maxLength: -200
+    maxLength: -240
     collierRadius: 0.2
     sprite: {fileID: -8781757214100938709, guid: 8f303e101fe02e648846ec33f1358ebc, type: 3}
   - price: 40
     fishCount: 10
     minLength: -100
-    maxLength: -200
+    maxLength: -250
     collierRadius: 0.2
     sprite: {fileID: 5071766062666551965, guid: ca2f9e0f7fbdb1149b989b6f91cba726, type: 3}
   - price: 20
     fishCount: 10
     minLength: -30
-    maxLength: -200
+    maxLength: -250
     collierRadius: 0.2
     sprite: {fileID: -9161645240248954025, guid: 24a6c3fd367461847a1e788b71ef0dda, type: 3}
 --- !u!114 &182642528
@@ -3024,7 +3024,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: add8202d3d1028c498bcf979933e0cd9, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: add8202d3d1028c498bcf979933e0cd9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

@@ -101,21 +101,40 @@ public class ScreensManager : MonoBehaviour
         int strengthCost = IdleManager.instance.strengthCost;
         int offlineEarningsCost = IdleManager.instance.offlineEarningsCost;
         int wallet = IdleManager.instance.wallet;
+        
+         int length = IdleManager.instance.length;
+        int strength = IdleManager.instance.strength;
+        int offlineEarnings = IdleManager.instance.offlineEarnings;
 
-        if(wallet < lengthCost)
-            lengthButton.interactable = false;
-        else
+        //lengthButton
+        if (wallet >= lengthCost && length > IdleManager.instance.MaxLength)
+        {
             lengthButton.interactable = true;
-
-        if(wallet < strengthCost)
-            strengthButton.interactable = false;
+        }
         else
+        {
+            lengthButton.interactable = false;
+        }
+
+        //strengthButton
+        if (wallet >= strengthCost && strength < IdleManager.instance.MaxStrength)
+        {
             strengthButton.interactable = true;
-
-        if(wallet < offlineEarningsCost)
-            offlineButton.interactable = false;
+        }
         else
+        {
+            strengthButton.interactable = false;
+        }
+
+        //offlineButton
+        if (wallet >= offlineEarningsCost && offlineEarnings < IdleManager.instance.MaxOfflineEarnings)
+        {
             offlineButton.interactable = true;
+        }
+        else
+        {
+            offlineButton.interactable = false;
+        }
     }
 
 }

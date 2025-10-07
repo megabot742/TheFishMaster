@@ -19,6 +19,9 @@ public class IdleManager : MonoBehaviour
     {
         120, 151, 197, 250, 324, 414, 537, 687, 892, 1145, 1484, 1911, 2479, 3196, 4148, 5359, 6954, 9000, 11687
     };
+    public int MaxLength => -(coast.Length - 3) * 10; // -210 => coast.Length = 19
+    public int MaxStrength => coast.Length + 2; // 21 => coast.Length = 19
+    public int MaxOfflineEarnings => coast.Length + 2; // 21 => coast.Length = 19
     public static IdleManager instance;
 
     void Awake()
@@ -32,9 +35,9 @@ public class IdleManager : MonoBehaviour
         length = -PlayerPrefs.GetInt("Length", 30);
         strength = PlayerPrefs.GetInt("Strength",3);
         offlineEarnings = PlayerPrefs.GetInt("Offline",3);
-        lengthCost = coast[-length / 10 - 3];
-        strengthCost = coast[strength - 3];
-        offlineEarningsCost = coast[offlineEarnings - 3];
+        lengthCost = coast[Mathf.Min(-length / 10 - 3, coast.Length - 1)];
+        strengthCost = coast[Mathf.Min(strength - 3, coast.Length - 1)];
+        offlineEarningsCost = coast[Mathf.Min(offlineEarnings - 3, coast.Length - 1)];
         wallet = PlayerPrefs.GetInt("Wallet", 0);
 
     }
@@ -64,30 +67,42 @@ public class IdleManager : MonoBehaviour
     }
     public void BuyLength()
     {
-        length -= 10;
-        wallet -= lengthCost;
-        lengthCost = coast[-length / 10 - 3];
-        PlayerPrefs.SetInt("Length", -length);
-        PlayerPrefs.SetInt("Wallet", wallet);
-        ScreensManager.instance.ChangeScreen(Screens.MAIN);
+        int nextStrengthIndex = strength - 2; // Next index after increment
+        if (nextStrengthIndex < coast.Length && wallet >= strengthCost)
+        {
+            strength++;
+            wallet -= strengthCost;
+            strengthCost = coast[Mathf.Min(nextStrengthIndex, coast.Length - 1)];
+            PlayerPrefs.SetInt("Strength", strength);
+            PlayerPrefs.SetInt("Wallet", wallet);
+            ScreensManager.instance.ChangeScreen(Screens.MAIN);
+        }
     }
     public void BuyStrength()
     {
-        strength++;
-        wallet -= strengthCost;
-        strengthCost = coast[strength - 3];
-        PlayerPrefs.SetInt("Strength", strength);
-        PlayerPrefs.SetInt("Wallet", wallet);
-        ScreensManager.instance.ChangeScreen(Screens.MAIN);
+        int nextStrengthIndex = strength - 2; // Next index after increment
+        if (nextStrengthIndex < coast.Length && wallet >= strengthCost)
+        {
+            strength++;
+            wallet -= strengthCost;
+            strengthCost = coast[Mathf.Min(nextStrengthIndex, coast.Length - 1)];
+            PlayerPrefs.SetInt("Strength", strength);
+            PlayerPrefs.SetInt("Wallet", wallet);
+            ScreensManager.instance.ChangeScreen(Screens.MAIN);
+        }
     }
     public void BuyOfflineEarning()
     {
-        offlineEarnings++;
-        wallet -= offlineEarningsCost;
-        offlineEarningsCost = coast[offlineEarnings - 3];
-        PlayerPrefs.SetInt("Offline", offlineEarnings);
-        PlayerPrefs.SetInt("Wallet", wallet);
-        ScreensManager.instance.ChangeScreen(Screens.MAIN);
+        int nextStrengthIndex = strength - 2; // Next index after increment
+        if (nextStrengthIndex < coast.Length && wallet >= strengthCost)
+        {
+            strength++;
+            wallet -= strengthCost;
+            strengthCost = coast[Mathf.Min(nextStrengthIndex, coast.Length - 1)];
+            PlayerPrefs.SetInt("Strength", strength);
+            PlayerPrefs.SetInt("Wallet", wallet);
+            ScreensManager.instance.ChangeScreen(Screens.MAIN);
+        }
     }
 
     public void CollectMoney()
