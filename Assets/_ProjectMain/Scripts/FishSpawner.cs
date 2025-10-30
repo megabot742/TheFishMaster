@@ -4,6 +4,7 @@ public class FishSpawner : MonoBehaviour
 {
 
     [SerializeField] Fish fishPrefab;
+    [SerializeField] GameObject fishParentObject;
     [SerializeField] Fish.FishType[] fishTypes;
 
     void Awake()
@@ -13,7 +14,7 @@ public class FishSpawner : MonoBehaviour
             int num = 0;
             while(num < fishTypes[i].fishCount)
             {
-                Fish fish = Instantiate<Fish>(fishPrefab);
+                Fish fish = Instantiate(fishPrefab,fishParentObject.transform);
                 fish.Type = fishTypes[i];
                 fish.ResetFish();
                 num++;

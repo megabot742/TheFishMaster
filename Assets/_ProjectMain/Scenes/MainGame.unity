@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 6568236124824446855, guid: d79016d9170d1894187d5fdf20238d45, type: 3}
+  parentObject: {fileID: 576759282}
   fishTypes:
   - price: 20
     fishCount: 10
@@ -739,6 +740,7 @@ MonoBehaviour:
   offlineEarningsCost: 0
   totalGain: 0
   wallet: 0
+  costs: 7800000097000000c5000000fa000000440100009e01000019020000af0200007c03000079040000cc05000077070000af0900007c0c000034100000ef1400002a1b000028230000a72d0000
 --- !u!1 &215925562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1525,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525807436}
   m_CullTransparentMesh: 1
+--- !u!1 &576759282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 576759283}
+  m_Layer: 0
+  m_Name: ParentObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &576759283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576759282}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &597627883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,3 +4223,4 @@ SceneRoots:
   - {fileID: 514230411}
   - {fileID: 182642526}
   - {fileID: 1296818214}
+  - {fileID: 576759283}
