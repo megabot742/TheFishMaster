@@ -10,6 +10,7 @@ public class Hook : MonoBehaviour
 
     Camera mainCamera;
     Collider2D coll2D;
+    FishSpawner fishSpawner;
 
     int lenght;
     int strength;
@@ -25,6 +26,7 @@ public class Hook : MonoBehaviour
         mainCamera = Camera.main;
         coll2D = GetComponent<Collider2D>();
         hookedFishes = new List<Fish>();
+        fishSpawner = FindFirstObjectByType<FishSpawner>();
     }
 
     // Update is called once per frame
@@ -47,16 +49,16 @@ public class Hook : MonoBehaviour
 
         cameraTween = mainCamera.transform.DOMoveY(lenght, 1 + time * 0.25f, false).OnUpdate(delegate
         {
-            if(mainCamera.transform.position.y <= -11)
+            if (mainCamera.transform.position.y <= -11)
             {
                 transform.SetParent(mainCamera.transform);
             }
         }).OnComplete(delegate
         {
-            coll2D.enabled =  true;
-            cameraTween = mainCamera.transform.DOMoveY(0, time*5, false).OnUpdate(delegate
+            coll2D.enabled = true;
+            cameraTween = mainCamera.transform.DOMoveY(0, time * 5, false).OnUpdate(delegate
             {
-                if(mainCamera.transform.position.y >= -25f)
+                if (mainCamera.transform.position.y >= -25f)
                 {
                     StopFishing();
                 }
@@ -74,7 +76,7 @@ public class Hook : MonoBehaviour
         cameraTween.Kill(false);
         cameraTween = mainCamera.transform.DOMoveY(0, 2, false).OnUpdate(delegate
         {
-            if(mainCamera.transform.position.y >= -11)
+            if (mainCamera.transform.position.y >= -11)
             {
                 transform.SetParent(null);
                 transform.position = new Vector2(transform.position.x, -6);
@@ -83,21 +85,26 @@ public class Hook : MonoBehaviour
         {
             transform.position = Vector2.down * 6;
             coll2D.enabled = true;
+
             int num = 0;
-            for(int i = 0; i < hookedFishes.Count; i++)
+            foreach (Fish hookedFish in hookedFishes)
             {
-                hookedFishes[i].transform.SetParent(null);
-                hookedFishes[i].ResetFish();
-                num += hookedFishes[i].Type.price;
+                num += hookedFish.Type.price;
+                hookedFish.transform.DOKill();
+                Destroy(hookedFish.gameObject);  // Destroy fish
             }
+
             IdleManager.instance.totalGain = num;
+            fishSpawner.RespawnFish(hookedFishes.Count);  // Spawn = Destroy
+            hookedFishes.Clear();  // Clear list
+
             ScreensManager.instance.ChangeScreen(Screens.END);
         });
     }
 
     void OnTriggerEnter2D(Collider2D target)
     {
-        if(target.CompareTag("Fish") && fishCount != strength)
+        if (target.CompareTag("Fish") && fishCount != strength)
         {
             fishCount++;
             Fish fishComponent = target.GetComponent<Fish>();
@@ -108,11 +115,11 @@ public class Hook : MonoBehaviour
             target.transform.rotation = hookedTransfrom.rotation;
             target.transform.localScale = Vector3.one;
 
-            target.transform.DOShakePosition(5, Vector3.forward * 45, 10, 90, false).SetLoops(1, LoopType.Yoyo).OnComplete(delegate
+            target.transform.DOShakePosition(1, Vector3.forward * 45, 10, 90, false).SetLoops(1, LoopType.Yoyo).SetLink(target.transform.gameObject).OnComplete(delegate
             {
                 target.transform.rotation = Quaternion.identity;
             });
-            if(fishCount == strength)
+            if (fishCount == strength)
                 StopFishing();
         }
     }

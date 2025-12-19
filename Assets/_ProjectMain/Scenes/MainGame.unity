@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 6568236124824446855, guid: d79016d9170d1894187d5fdf20238d45, type: 3}
-  parentObject: {fileID: 576759282}
+  fishParentObject: {fileID: 576759282}
   fishTypes:
   - price: 20
     fishCount: 10
@@ -652,44 +652,44 @@ MonoBehaviour:
     sprite: {fileID: 1730496894020149204, guid: 24df8bf2065edea48b248ccc8370e81e, type: 3}
   - price: 120
     fishCount: 10
-    minLength: -150
-    maxLength: -220
+    minLength: -170
+    maxLength: -210
     collierRadius: 0.2
     sprite: {fileID: 2717186713797876553, guid: 11d8f57b6f4340c4ba1a4fdb925761ca, type: 3}
   - price: 150
     fishCount: 10
-    minLength: -170
-    maxLength: -220
+    minLength: -150
+    maxLength: -200
     collierRadius: 0.2
     sprite: {fileID: -5643767255001524317, guid: 744f9e7a29e355e4cadf2826051fd264, type: 3}
   - price: 200
     fishCount: 10
     minLength: -170
-    maxLength: -230
+    maxLength: -210
     collierRadius: 0.2
     sprite: {fileID: -2655201640545338807, guid: 2327bc3e2bc8d2a439d4775360b673a8, type: 3}
   - price: 300
     fishCount: 10
     minLength: -180
-    maxLength: -240
+    maxLength: -200
     collierRadius: 0.2
     sprite: {fileID: -855719709115259005, guid: 68073c4081bfa2941acf899b081ccb23, type: 3}
   - price: 30
     fishCount: 10
     minLength: -100
-    maxLength: -240
+    maxLength: -200
     collierRadius: 0.2
     sprite: {fileID: -8781757214100938709, guid: 8f303e101fe02e648846ec33f1358ebc, type: 3}
   - price: 40
     fishCount: 10
     minLength: -100
-    maxLength: -250
+    maxLength: -200
     collierRadius: 0.2
     sprite: {fileID: 5071766062666551965, guid: ca2f9e0f7fbdb1149b989b6f91cba726, type: 3}
   - price: 20
     fishCount: 10
     minLength: -30
-    maxLength: -250
+    maxLength: -200
     collierRadius: 0.2
     sprite: {fileID: -9161645240248954025, guid: 24a6c3fd367461847a1e788b71ef0dda, type: 3}
 --- !u!114 &182642528
